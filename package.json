@@ -1,0 +1,76 @@
+{
+  "name": "effect-slack",
+  "version": "0.0.1",
+  "description": "An Effect-native Slack SDK",
+  "keywords": [
+    "api",
+    "effect",
+    "functional",
+    "slack",
+    "typescript",
+    "web-api"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mateokruk/effect-slack"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt . --write",
+    "format:check": "oxfmt . --check",
+    "generate": "bun scripts/generate-services.ts",
+    "generate:check": "bun scripts/generate-services.ts --check",
+    "prepublishOnly": "bun run build",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@slack/web-api": "^7.13.0"
+  },
+  "devDependencies": {
+    "@effect/platform": "^0.94.1",
+    "@effect/platform-node": "^0.104.0",
+    "@effect/vitest": "^0.27.0",
+    "@types/bun": "^1.3.5",
+    "effect": "^3.19.14",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.36.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "peerDependencies": {
+    "effect": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "oxlint"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
